@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Shield Settings</title>
+  <style>
+    body {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    h2 {
+      color: #555;
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .filter-mode-section {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    #filterMode {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    #keywordsList {
+      margin-bottom: 15px;
+    }
+
+    .keyword-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+
+    .keyword-row input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .keyword-row button {
+      padding: 10px 16px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .keyword-row button:hover {
+      background-color: #d32f2f;
+    }
+
+    #addKeyword {
+      padding: 10px 20px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    #addKeyword:hover {
+      background-color: #1976D2;
+    }
+
+    #save {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    #save:hover {
+      background-color: #45a049;
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #e8f5e9;
+      border-left: 4px solid #4CAF50;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .empty-state {
+      padding: 20px;
+      text-align: center;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Content Shield Settings</h1>
+    
+    <div class="filter-mode-section">
+      <label for="filterMode">Filter Mode:</label>
+      <select id="filterMode">
+        <option value="blur">Blur spoilers (click to reveal)</option>
+        <option value="censor">Censor with black bar (click to reveal)</option>
+        <option value="remove">Remove completely (permanent)</option>
+      </select>
+    </div>
+
+    <h2>Keywords to Block</h2>
+    <div id="keywordsList"></div>
+    
+    <button id="addKeyword">+ Add Keyword</button>
+    
+    <button id="save">Save Settings</button>
+    
+    <div class="status" id="status"></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

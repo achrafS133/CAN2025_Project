@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="128" height="128"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Background with rounded corners (simulated)
+        ctx.fillStyle = '#4CAF50';
+        ctx.fillRect(0, 0, 128, 128);
+        
+        // Shield shape
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.moveTo(64, 20);
+        ctx.lineTo(90, 45);
+        ctx.lineTo(90, 85);
+        ctx.quadraticCurveTo(90, 95, 82, 100);
+        ctx.lineTo(64, 108);
+        ctx.lineTo(46, 100);
+        ctx.quadraticCurveTo(38, 95, 38, 85);
+        ctx.lineTo(38, 45);
+        ctx.closePath();
+        ctx.fill();
+        
+        // Text
+        ctx.fillStyle = '#4CAF50';
+        ctx.font = 'bold 45px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('CS', 64, 68);
+        
+        // Convert to PNG and download
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'icon128.png';
+            a.click();
+        });
+    </script>
+</body>
+</html>

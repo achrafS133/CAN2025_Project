@@ -1,0 +1,5 @@
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" fill="#4CAF50" rx="20"/>
+  <path d="M64 20 L90 45 L90 95 C90 100 88 105 82 108 L64 118 L46 108 C40 105 38 100 38 95 L38 45 Z" fill="white"/>
+  <text x="64" y="75" font-family="Arial" font-size="40" font-weight="bold" fill="#4CAF50" text-anchor="middle" dominant-baseline="middle">CS</text>
+</svg>

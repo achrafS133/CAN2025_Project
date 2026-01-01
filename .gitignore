@@ -1,0 +1,18 @@
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.env/
+
+# ML models / large files
+*.pt
+*.pth
+
+# OS
+.DS_Store
+ 

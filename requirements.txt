@@ -1,0 +1,15 @@
+streamlit
+ultralytics
+langchain
+langchain-openai
+python-dotenv
+opencv-python-headless
+plotly
+pillow
+numpy
+fer
+twilio
+fpdf2
+folium
+streamlit-folium
+mysql-connector-python
