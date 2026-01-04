@@ -8,6 +8,8 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![YOLOv8](https://img.shields.io/badge/YOLOv8-Computer_Vision-00FFFF?style=for-the-badge&logo=pytorch&logoColor=white)](https://ultralytics.com)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
 [![Google Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
@@ -94,6 +96,19 @@ _Developed with ❤️ for Morocco 🇲🇦_
 | **📊 CSV Export** | Security log exports for analysis               |
 | **📈 Analytics**  | Real-time entrance flow and threat level charts |
 
+### ⚛️ Modern React Frontend
+
+| Feature                    | Description                                           |
+| -------------------------- | ----------------------------------------------------- |
+| **🎨 Dark Mode UI**        | Sleek dark theme with Tailwind CSS styling            |
+| **📹 Webcam Integration**  | Browser-based camera capture for threat detection     |
+| **📊 Real-time Dashboard** | Live KPIs, threat counts, and system status           |
+| **🔐 JWT Authentication**  | Secure login with token refresh                       |
+| **📱 Responsive Design**   | Works on desktop, tablet, and mobile                  |
+| **🕐 24h Date Format**     | DD/MM/YYYY HH:mm format throughout the app            |
+| **⚙️ Settings Panel**      | Configurable notifications, detection, and appearance |
+| **📜 Threat History**      | Complete log with resolve/false-positive actions      |
+
 ---
 
 ## 🏗️ Architecture
@@ -156,37 +171,58 @@ graph TD
 ```
 CAN2025_Project/
 │
-├── 🎯 FastAPI Backend
-│   ├── api/
-│   │   ├── main.py              # FastAPI application entry point
-│   │   ├── middleware.py        # Rate limiting & logging
-│   │   └── v1/routes/           # API endpoints (auth, threats, ai, etc.)
-│   │
-│   ├── core/                    # Core Infrastructure
-│   │   ├── config.py            # Settings & encryption
-│   │   ├── logger.py            # Structured logging
-│   │   └── rate_limiter.py      # Rate limiting logic
-│   │
-│   ├── services/                # Business Logic
-│   │   ├── chatbot_logic_enhanced.py  # Multi-AI chatbot
-│   │   ├── analytics.py         # ML analytics engine
-│   │   ├── cost_tracker.py      # API cost tracking
-│   │   ├── integrations.py      # Slack/Discord/WhatsApp
-│   │   └── video_stream.py      # RTSP/RTMP streaming
-│   │
-│   └── models/                  # Data models & schemas
+├── 🎯 FastAPI Backend (api/)
+│   ├── main.py                  # FastAPI application entry point
+│   ├── middleware.py            # Rate limiting, logging & CORS
+│   └── v1/routes/               # API endpoints
+│       ├── auth.py              # JWT authentication
+│       ├── threats.py           # Threat detection & history
+│       ├── ai.py                # Multi-AI chatbot
+│       ├── analytics.py         # Dashboard analytics
+│       ├── streams.py           # Video stream management
+│       ├── alerts.py            # Alerts & cost tracking
+│       └── settings.py          # User settings CRUD
+│
+├── ⚙️ Core Infrastructure (core/)
+│   ├── config.py                # Settings & encryption
+│   ├── logger.py                # Structured logging with audit trail
+│   └── rate_limiter.py          # Rate limiting logic
+│
+├── 🔧 Services (services/)
+│   ├── chatbot_logic_enhanced.py  # Multi-AI chatbot (GPT/Gemini/Claude)
+│   ├── analytics.py             # ML analytics engine
+│   ├── cost_tracker.py          # API cost tracking
+│   ├── integrations.py          # Slack/Discord/WhatsApp
+│   └── video_stream.py          # RTSP/RTMP streaming
+│
+├── ⚛️ React Frontend (frontend/)
+│   ├── src/
+│   │   ├── components/          # Reusable UI components
+│   │   │   ├── ui/              # Card, Button, Input, etc.
+│   │   │   ├── Sidebar.tsx      # Navigation sidebar
+│   │   │   └── WebcamPreview.tsx # Live camera preview
+│   │   ├── pages/               # Application pages
+│   │   │   ├── Dashboard.tsx    # Main dashboard with KPIs
+│   │   │   ├── Threats.tsx      # Threat detection & history
+│   │   │   ├── Streams.tsx      # Video stream management
+│   │   │   ├── Alerts.tsx       # Alerts & budget tracking
+│   │   │   ├── AIChat.tsx       # Multi-AI chat interface
+│   │   │   ├── Analytics.tsx    # Charts & analytics
+│   │   │   ├── Settings.tsx     # User preferences
+│   │   │   └── Login.tsx        # Authentication
+│   │   ├── services/            # API service layer
+│   │   │   ├── api.ts           # Axios instance with interceptors
+│   │   │   ├── auth.ts          # Authentication service
+│   │   │   ├── threats.ts       # Threat detection API
+│   │   │   ├── streams.ts       # Video streams API
+│   │   │   └── settings.ts      # Settings API
+│   │   └── utils/
+│   │       └── dateFormat.ts    # Date formatting utilities
+│   ├── package.json             # Bun/npm dependencies
+│   └── vite.config.ts           # Vite configuration
 │
 ├── 🔍 Computer Vision
 │   └── yolov8n.pt               # YOLOv8 Nano model weights
-│
-├── 🌐 Frontend
-│   └── frontend_example.html    # Example frontend implementation
-│
-├── 📚 Documentation
-│   ├── README.md                # This file
-│   ├── API_QUICK_REFERENCE.md   # API endpoint reference
-│   ├── PROJECT_STRUCTURE.md     # Detailed structure guide
-│   └── REORGANIZATION_COMPLETE.md
 │
 ├── 🐳 Deployment
 │   ├── docker-compose.yml       # Docker orchestration
@@ -201,10 +237,10 @@ CAN2025_Project/
 
 ### Key Components
 
-- **`api/`**: FastAPI routes and middleware
+- **`api/`**: FastAPI routes, middleware, and authentication
 - **`core/`**: Infrastructure (config, logging, rate limiting)
 - **`services/`**: Business logic (AI, analytics, alerts, video)
-- **`frontend_example.html`**: Reference implementation for frontend developers
+- **`frontend/`**: Modern React 19 + TypeScript + Vite application
 - **`docker-compose.yml`**: Production deployment configuration
 
 ---
@@ -249,22 +285,24 @@ cp .env.example .env
 ### Start the Server
 
 ```bash
-# Option 1: Using startup script
-./start_api.sh
-
-# Option 2: Manual start
+# Option 1: Start Backend
 uvicorn api.main:app --reload --host 0.0.0.0 --port 8888
 
-# Option 3: Docker
+# Option 2: Start Frontend (in separate terminal)
+cd frontend
+bun install  # or npm install
+bun dev      # or npm run dev
+
+# Option 3: Docker (Full Stack)
 docker-compose up -d
 ```
 
-### Access the API
+### Access the Application
 
+- **Frontend App**: http://localhost:5173
 - **Swagger Docs**: http://localhost:8888/api/docs
 - **ReDoc**: http://localhost:8888/api/redoc
 - **Health Check**: http://localhost:8888/health
-- **Frontend Example**: Open `frontend_example.html` in browser
 
 ### Quick Test
 
@@ -279,6 +317,53 @@ curl -X POST "http://localhost:8888/api/v1/auth/login" \
 ```
 
 **Default Credentials:**
+
+- Admin: `admin` / `admin123`
+- Operator: `operator` / `operator123`
+
+---
+
+## ⚛️ Frontend Development
+
+The React frontend is built with modern tools and best practices:
+
+### Tech Stack
+
+| Technology   | Version | Purpose                 |
+| ------------ | ------- | ----------------------- |
+| React        | 19      | UI Framework            |
+| TypeScript   | 5.0     | Type Safety             |
+| Vite         | 6.0     | Build Tool & Dev Server |
+| Tailwind CSS | 3.4     | Utility-First Styling   |
+| Axios        | 1.7     | HTTP Client             |
+| Lucide React | 0.468   | Icon Library            |
+| Recharts     | 2.15    | Charts & Analytics      |
+
+### Frontend Features
+
+- **🔐 Authentication**: JWT-based login with automatic token refresh
+- **📊 Dashboard**: Real-time KPIs, threat counts, and system health
+- **🎯 Threat Detection**: Upload images for AI-powered threat analysis
+- **📹 Video Streams**: Manage streams with webcam integration
+- **🤖 AI Chat**: Multi-model chat (GPT-4, Gemini, Claude)
+- **📈 Analytics**: Interactive charts with date range filtering
+- **⚙️ Settings**: Configurable notifications and preferences
+- **🌙 Dark Mode**: Sleek dark theme throughout
+
+### Running the Frontend
+
+```bash
+cd frontend
+
+# Install dependencies
+bun install  # or npm install
+
+# Start development server
+bun dev  # or npm run dev
+
+# Build for production
+bun run build  # or npm run build
+```
 
 - Admin: `admin` / `admin123`
 - Operator: `operator` / `operator123`

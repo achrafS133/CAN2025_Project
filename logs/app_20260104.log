@@ -4507,3 +4507,4 @@
 {"timestamp": "2026-01-04T02:02:05.203683", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/alerts/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
 {"method": "GET", "path": "/api/v1/alerts/costs/budget", "status_code": 200, "duration_ms": 2.9463768005371094, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T02:02:05.204886Z"}
 {"timestamp": "2026-01-04T02:02:05.205144", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/alerts/costs/budget", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"event": "api_shutdown", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T02:03:19.480282Z"}
