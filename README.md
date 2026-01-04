@@ -6,6 +6,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![YOLOv8](https://img.shields.io/badge/YOLOv8-Computer_Vision-00FFFF?style=for-the-badge&logo=pytorch&logoColor=white)](https://ultralytics.com)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com)
 [![Google Gemini](https://img.shields.io/badge/Google-Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
@@ -453,36 +455,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ---
 
 ## 🚀 Future Roadmap
-
-### Phase 1: Frontend Development (Current Priority) 🎯
-
-**Goal**: Build modern React/Vue/Next.js frontend using the FastAPI backend
-
-- ✅ FastAPI backend complete with 35+ endpoints
-- ✅ JWT authentication & rate limiting
-- ✅ Multi-AI chatbot (GPT-4, Gemini, Claude)
-- ✅ Analytics & cost tracking
-- 🔜 React Dashboard UI
-- 🔜 Real-time WebSocket updates
-- 🔜 Mobile responsive design
-
-### Phase 2: Advanced Features (Post-CAN 2025)
-
-```mermaid
-gantt
-    title CAN 2025 Guardian Roadmap
-    dateFormat  YYYY-MM
-    section Core
-    FastAPI Backend       :done, 2024-12, 2025-01
-    React Frontend        :active, 2025-01, 2025-02
-    section Phase 2
-    Drone Integration     :2025-03, 2025-04
-    Facial Recognition    :2025-04, 2025-05
-    Predictive Analytics  :2025-05, 2025-06
-    section Phase 3
-    Mobile App            :2025-06, 2025-08
-    Multi-Event Platform  :2025-08, 2025-10
-```
 
 ### 🔮 Planned Enhancements
 

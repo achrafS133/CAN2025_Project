@@ -6,7 +6,7 @@ services:
     build: .
     container_name: can2025_api
     ports:
-      - "8000:8000"
+      - "8888:8888"
     environment:
       - DATABASE_URL=postgresql://can2025:can2025pass@db:5432/can2025_db
       - REDIS_URL=redis://redis:6379/0

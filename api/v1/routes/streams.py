@@ -25,31 +25,35 @@ except ImportError:
 
 router = APIRouter()
 
+# Mock streams storage (in-memory for now)
+mock_added_streams = []
+
 
 # Models
 class StreamInfo(BaseModel):
     stream_id: str
     name: str
-    url: str
-    status: str  # active, stopped, error
+    source: str
+    status: str  # active, inactive, error
     fps: int
     resolution: str
-    protocol: str  # rtsp, rtmp, usb
+    started_at: Optional[str] = None
 
 
 class StreamStats(BaseModel):
     stream_id: str
-    frames_processed: int
-    current_fps: float
-    dropped_frames: int
     uptime_seconds: float
+    frames_processed: int
+    average_fps: float
+    detections_count: int
+    last_detection: Optional[str] = None
 
 
 class AddStreamRequest(BaseModel):
     name: str
-    url: str
-    fps: int = 30
-    buffer_size: int = 30
+    source: str
+    enable_detection: bool = True
+    detection_interval: int = 30
 
 
 class MultiViewRequest(BaseModel):
@@ -65,42 +69,59 @@ async def get_all_streams(current_user: User = Depends(get_current_active_user))
 
     Returns information about active and configured streams
     """
-    if not camera_manager:
-        raise HTTPException(status_code=503, detail="Camera manager not available")
+    # Base mock streams that always show
+    base_streams = [
+        StreamInfo(
+            stream_id="stream_1",
+            name="Main Gate Camera",
+            source="rtsp://192.168.1.100/stream",
+            status="inactive",
+            fps=30,
+            resolution="1920x1080",
+            started_at=None,
+        ),
+        StreamInfo(
+            stream_id="stream_2",
+            name="Section A Camera",
+            source="rtsp://192.168.1.101/stream",
+            status="inactive",
+            fps=30,
+            resolution="1920x1080",
+            started_at=None,
+        ),
+    ]
 
-    try:
-        stats = camera_manager.get_stats()
+    # Combine base streams with user-added mock streams
+    all_streams = base_streams + mock_added_streams
 
-        streams = []
-        for stream_id, stream_stats in stats.items():
-            # Extract stream info
-            stream = camera_manager.streams.get(stream_id)
-            if stream:
-                streams.append(
+    # If camera_manager is available, also include real streams
+    if camera_manager:
+        try:
+            stats_list = camera_manager.get_stats()
+            for stream_stats in stats_list:
+                all_streams.append(
                     StreamInfo(
-                        stream_id=stream_id,
-                        name=stream_stats.get("name", stream_id),
-                        url=stream_stats.get("url", "unknown"),
+                        stream_id=stream_stats.get("stream_id", "unknown"),
+                        name=stream_stats.get("name", "Unknown Camera"),
+                        source=stream_stats.get("source", "unknown"),
                         status=(
                             "active"
                             if stream_stats.get("running", False)
-                            else "stopped"
+                            else "inactive"
                         ),
                         fps=stream_stats.get("fps", 0),
                         resolution=stream_stats.get("resolution", "unknown"),
-                        protocol=stream_stats.get("protocol", "unknown"),
+                        started_at=stream_stats.get("start_time"),
                     )
                 )
+        except Exception as e:
+            app_logger.error("list_real_streams_error", error=str(e))
 
-        app_logger.info(
-            "streams_listed", user=current_user.username, count=len(streams)
-        )
+    app_logger.info(
+        "streams_listed", user=current_user.username, count=len(all_streams)
+    )
 
-        return streams
-
-    except Exception as e:
-        app_logger.error("list_streams_error", error=str(e))
-        raise HTTPException(status_code=500, detail=f"Failed to list streams: {str(e)}")
+    return all_streams
 
 
 @router.post("/", status_code=201)
@@ -113,7 +134,37 @@ async def add_stream(
     Supports RTSP, RTMP, and USB camera URLs
     """
     if not camera_manager:
-        raise HTTPException(status_code=503, detail="Camera manager not available")
+        # Return mock success when camera manager is not available
+        import uuid
+
+        stream_id = request.name.lower().replace(" ", "_")
+        if not stream_id:
+            stream_id = f"stream_{uuid.uuid4().hex[:8]}"
+
+        app_logger.info(
+            "adding_stream_mock",
+            user=current_user.username,
+            name=request.name,
+            source=request.source,
+        )
+
+        # Add to mock storage
+        new_stream = StreamInfo(
+            stream_id=stream_id,
+            name=request.name,
+            source=request.source,
+            status="inactive",
+            fps=30,
+            resolution="1920x1080",
+            started_at=None,
+        )
+        mock_added_streams.append(new_stream)
+
+        return {
+            "message": "Stream added successfully (mock mode)",
+            "stream_id": stream_id,
+            "name": request.name,
+        }
 
     try:
         # Check if max streams reached
@@ -124,16 +175,41 @@ async def add_stream(
             "adding_stream",
             user=current_user.username,
             name=request.name,
-            url=request.url,
+            source=request.source,
         )
 
-        # Add stream
-        stream_id = camera_manager.add_stream(
-            url=request.url,
-            name=request.name,
-            fps=request.fps,
-            buffer_size=request.buffer_size,
+        # Add stream - generate stream_id from name
+        stream_id = request.name.lower().replace(" ", "_")
+        success = camera_manager.add_stream(
+            source=request.source,
+            stream_id=stream_id,
         )
+
+        if not success:
+            # Camera failed to open, add to mock storage instead
+            app_logger.warning(
+                "stream_start_failed_using_mock",
+                stream_id=stream_id,
+                source=request.source,
+            )
+
+            # Add to mock storage
+            new_stream = StreamInfo(
+                stream_id=stream_id,
+                name=request.name,
+                source=request.source,
+                status="inactive",
+                fps=30,
+                resolution="1920x1080",
+                started_at=None,
+            )
+            mock_added_streams.append(new_stream)
+
+            return {
+                "message": "Stream added successfully (mock mode - camera unavailable)",
+                "stream_id": stream_id,
+                "name": request.name,
+            }
 
         return {
             "message": "Stream added successfully",
@@ -156,7 +232,18 @@ async def remove_stream(
     Stops the stream and removes it from active streams
     """
     if not camera_manager:
-        raise HTTPException(status_code=503, detail="Camera manager not available")
+        # Remove from mock storage
+        global mock_added_streams
+        original_count = len(mock_added_streams)
+        mock_added_streams = [s for s in mock_added_streams if s.stream_id != stream_id]
+
+        if len(mock_added_streams) < original_count:
+            app_logger.info(
+                "stream_removed_mock", user=current_user.username, stream_id=stream_id
+            )
+            return {"message": "Stream removed successfully", "stream_id": stream_id}
+        else:
+            raise HTTPException(status_code=404, detail="Stream not found")
 
     try:
         camera_manager.remove_stream(stream_id)
@@ -334,8 +421,29 @@ async def start_stream(
     """
     Start a stopped stream
     """
+    # First check mock streams (works regardless of camera_manager status)
+    for stream in mock_added_streams:
+        if stream.stream_id == stream_id:
+            stream.status = "active"
+            stream.started_at = datetime.now().isoformat()
+            app_logger.info(
+                "stream_started_mock",
+                stream_id=stream_id,
+                user=current_user.username,
+            )
+            return {"message": "Stream started (mock)", "stream_id": stream_id}
+
+    # Check base streams (stream_1, stream_2) - these are always mock
+    if stream_id in ["stream_1", "stream_2"]:
+        app_logger.info(
+            "stream_started_base_mock",
+            stream_id=stream_id,
+            user=current_user.username,
+        )
+        return {"message": "Stream started (demo)", "stream_id": stream_id}
+
     if not camera_manager:
-        raise HTTPException(status_code=503, detail="Camera manager not available")
+        raise HTTPException(status_code=404, detail="Stream not found")
 
     try:
         stream = camera_manager.streams.get(stream_id)
@@ -349,6 +457,8 @@ async def start_stream(
 
         return {"message": "Stream started", "stream_id": stream_id}
 
+    except HTTPException:
+        raise
     except Exception as e:
         app_logger.error("start_stream_error", error=str(e), stream_id=stream_id)
         raise HTTPException(status_code=500, detail=f"Failed to start stream: {str(e)}")
@@ -361,8 +471,29 @@ async def stop_stream(
     """
     Stop a running stream
     """
+    # First check mock streams (works regardless of camera_manager status)
+    for stream in mock_added_streams:
+        if stream.stream_id == stream_id:
+            stream.status = "inactive"
+            stream.started_at = None
+            app_logger.info(
+                "stream_stopped_mock",
+                stream_id=stream_id,
+                user=current_user.username,
+            )
+            return {"message": "Stream stopped (mock)", "stream_id": stream_id}
+
+    # Check base streams (stream_1, stream_2) - these are always mock
+    if stream_id in ["stream_1", "stream_2"]:
+        app_logger.info(
+            "stream_stopped_base_mock",
+            stream_id=stream_id,
+            user=current_user.username,
+        )
+        return {"message": "Stream stopped (demo)", "stream_id": stream_id}
+
     if not camera_manager:
-        raise HTTPException(status_code=503, detail="Camera manager not available")
+        raise HTTPException(status_code=404, detail="Stream not found")
 
     try:
         stream = camera_manager.streams.get(stream_id)
@@ -376,6 +507,8 @@ async def stop_stream(
 
         return {"message": "Stream stopped", "stream_id": stream_id}
 
+    except HTTPException:
+        raise
     except Exception as e:
         app_logger.error("stop_stream_error", error=str(e), stream_id=stream_id)
         raise HTTPException(status_code=500, detail=f"Failed to stop stream: {str(e)}")

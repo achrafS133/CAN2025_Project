@@ -9,9 +9,9 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse
 import time
 
-from api.v1.routes import auth, threats, ai, analytics, streams, alerts
+from api.v1.routes import auth, threats, ai, analytics, streams, alerts, settings
 from api.middleware import rate_limit_middleware, logging_middleware
-from core.config import settings
+from core.config import settings as app_settings
 from core.logger import app_logger
 
 # Create FastAPI app
@@ -59,6 +59,7 @@ app.include_router(ai.router, prefix="/api/v1/ai", tags=["AI Chatbot"])
 app.include_router(analytics.router, prefix="/api/v1/analytics", tags=["Analytics"])
 app.include_router(streams.router, prefix="/api/v1/streams", tags=["Video Streams"])
 app.include_router(alerts.router, prefix="/api/v1/alerts", tags=["Alerts & Costs"])
+app.include_router(settings.router, prefix="/api/v1/settings", tags=["Settings"])
 
 
 # Root endpoint
@@ -130,4 +131,4 @@ async def shutdown_event():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, log_level="info")
+    uvicorn.run("main:app", host="0.0.0.0", port=8888, reload=True, log_level="info")

@@ -46,7 +46,7 @@ class APITester:
         print("-" * 50)
 
         try:
-            response = requests.get("http://localhost:8000/health")
+            response = requests.get("http://localhost:8888/health")
             success = response.status_code == 200
             self.print_test("Health check", success, f"Status: {response.status_code}")
         except Exception as e:

@@ -13,6 +13,10 @@ from core.logger import app_logger, audit_logger
 
 async def rate_limit_middleware(request: Request, call_next):
     """Rate limiting middleware"""
+    # Skip OPTIONS preflight requests (CORS)
+    if request.method == "OPTIONS":
+        return await call_next(request)
+
     # Extract user ID from request (from auth token or IP)
     user_id = request.client.host  # Use IP as fallback
 
@@ -47,6 +51,10 @@ async def rate_limit_middleware(request: Request, call_next):
 
 async def logging_middleware(request: Request, call_next):
     """Logging middleware for all requests"""
+    # Skip OPTIONS preflight requests (CORS)
+    if request.method == "OPTIONS":
+        return await call_next(request)
+
     start_time = time.time()
 
     # Log request
