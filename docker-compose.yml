@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  # FastAPI Backend
+  api:
+    build: .
+    container_name: can2025_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://can2025:can2025pass@db:5432/can2025_db
+      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    networks:
+      - can2025_network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: can2025_db
+    environment:
+      - POSTGRES_USER=can2025
+      - POSTGRES_PASSWORD=can2025pass
+      - POSTGRES_DB=can2025_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - can2025_network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: can2025_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - can2025_network
+
+  # Nginx Reverse Proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: can2025_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+    restart: unless-stopped
+    networks:
+      - can2025_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  can2025_network:
+    driver: bridge

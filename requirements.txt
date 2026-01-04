@@ -1,15 +1,80 @@
+# Core Frameworks
 streamlit
+python-dotenv
+
+# FastAPI & API Server
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+websockets
+
+# AI & ML Models
 ultralytics
 langchain
 langchain-openai
-python-dotenv
+langchain-google-genai
+langchain-anthropic
+langchain-core
+langchain-community
+google-generativeai
+anthropic
+openai
+
+# RAG & Vector Store
+chromadb
+langchain-chroma
+tiktoken
+
+# Computer Vision
 opencv-python-headless
-plotly
+deepface
+tf-keras
+fer
 pillow
 numpy
-fer
-twilio
-fpdf2
+tensorflow
+
+# Data & Analytics
+plotly
+pandas
+openpyxl
+xlsxwriter
+scikit-learn
+scipy
+
+# Mapping & Geospatial
 folium
 streamlit-folium
+
+# Communications & Alerts
+twilio
+fpdf2
+
+# Performance & Caching
+redis
+streamlit-extras
+diskcache
+
+# Configuration & Validation
+pydantic
+pydantic-settings
+cryptography
+
+# Database
 mysql-connector-python
+sqlalchemy
+
+# Integrations
+slack-sdk
+discord-webhook
+requests
+
+# Logging & Monitoring
+structlog
+colorlog
+
+# Type Checking & Code Quality
+typing-extensions
+mypy

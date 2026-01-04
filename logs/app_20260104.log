@@ -1,0 +1,138 @@
+{"limits": {"per_minute": 60, "per_hour": 1000, "per_day": 10000}, "event": "rate_limiter_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:29.243330Z"}
+{"event": "analytics_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:28:34.295490Z"}
+{"event": "video_stream_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:28:34.308899Z"}
+{"event": "integrations_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:28:34.315966Z"}
+{"event": "cost_tracker_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:28:34.316119Z"}
+{"version": "2.0.0", "event": "api_startup", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:34.341557Z"}
+{"event": "api_shutdown", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:51.187037Z"}
+{"limits": {"per_minute": 60, "per_hour": 1000, "per_day": 10000}, "event": "rate_limiter_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:51.862282Z"}
+{"event": "analytics_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:28:55.443562Z"}
+{"max_streams": 4, "event": "multi_camera_manager_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:55.456060Z"}
+{"max_streams": 4, "event": "multi_camera_manager_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:55.456220Z"}
+{"event": "cost_tracker_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:28:55.467033Z"}
+{"version": "2.0.0", "event": "api_startup", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:55.505651Z"}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.222524Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.223305Z"}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 1.138925552368164, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.223629Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.8533000946044922, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.224133Z"}
+{"timestamp": "2026-01-04T00:28:59.224218", "event_type": "api_access", "user_id": null, "action": "OPTIONS", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.227178Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.227534Z"}
+{"user": "admin", "event": "dashboard_stats_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.230731Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.231809Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 4.924297332763672, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.232090Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 4.922628402709961, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:28:59.232452Z"}
+{"timestamp": "2026-01-04T00:28:59.232526", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.217529Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.217940Z"}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 0.8642673492431641, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.218370Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.7908344268798828, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.218724Z"}
+{"timestamp": "2026-01-04T00:29:29.218798", "event_type": "api_access", "user_id": null, "action": "OPTIONS", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.220213Z"}
+{"user": "admin", "event": "dashboard_stats_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.220690Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.221021Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.221577Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 1.520395278930664, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.221723Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.1246204376220703, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.222142Z"}
+{"timestamp": "2026-01-04T00:29:29.222210", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"event": "api_shutdown", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:29.929929Z"}
+{"limits": {"per_minute": 60, "per_hour": 1000, "per_day": 10000}, "event": "rate_limiter_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:30.460003Z"}
+{"event": "analytics_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:29:34.700057Z"}
+{"max_streams": 4, "event": "multi_camera_manager_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.713157Z"}
+{"max_streams": 4, "event": "multi_camera_manager_initialized", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.713329Z"}
+{"event": "cost_tracker_module_not_available", "logger": "core.rate_limiter", "level": "warning", "timestamp": "2026-01-04T00:29:34.724186Z"}
+{"version": "2.0.0", "event": "api_startup", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.762201Z"}
+{"method": "POST", "path": "/api/v1/auth/login", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.767417Z"}
+{"timestamp": "2026-01-04T00:29:34.975011", "event_type": "login_success", "user_id": "admin", "action": "login", "resource": "", "status": "success", "ip_address": null, "details": {}}
+{"username": "admin", "event": "user_login", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.975227Z"}
+{"method": "POST", "path": "/api/v1/auth/login", "status_code": 200, "duration_ms": 208.4066867828369, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.975801Z"}
+{"method": "GET", "path": "/api/v1/auth/me", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.978614Z"}
+{"method": "GET", "path": "/api/v1/auth/me", "status_code": 200, "duration_ms": 1.0783672332763672, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.979667Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.982019Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.982706Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.9467601776123047, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.982948Z"}
+{"timestamp": "2026-01-04T00:29:34.983021", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/threats/stats", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.984864Z"}
+{"method": "GET", "path": "/api/v1/threats/stats", "status_code": 200, "duration_ms": 0.8690357208251953, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.985718Z"}
+{"timestamp": "2026-01-04T00:29:34.985794", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/stats", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/ai/models", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.987390Z"}
+{"method": "GET", "path": "/api/v1/ai/models", "status_code": 200, "duration_ms": 6.533145904541016, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.993912Z"}
+{"method": "POST", "path": "/api/v1/ai/chat", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.995989Z"}
+{"user": "admin", "model": "openai", "query_length": 49, "event": "ai_chat_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.997422Z"}
+{"error": "AuditLogger.log_user_query() got an unexpected keyword argument 'model'", "user": "admin", "event": "ai_chat_error", "logger": "core.rate_limiter", "level": "error", "timestamp": "2026-01-04T00:29:34.997529Z"}
+{"method": "POST", "path": "/api/v1/ai/chat", "status_code": 500, "duration_ms": 1.8932819366455078, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.997856Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:34.999571Z"}
+{"user": "admin", "event": "dashboard_stats_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.000661Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 1.5294551849365234, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.001081Z"}
+{"method": "GET", "path": "/api/v1/analytics/anomalies", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.002862Z"}
+{"method": "GET", "path": "/api/v1/analytics/anomalies", "status_code": 503, "duration_ms": 1.3322830200195312, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.004167Z"}
+{"method": "GET", "path": "/api/v1/streams", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.006009Z"}
+{"method": "GET", "path": "/api/v1/streams", "status_code": 307, "duration_ms": 0.6384849548339844, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.006628Z"}
+{"method": "GET", "path": "/api/v1/streams/", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.007606Z"}
+{"error": "'list' object has no attribute 'items'", "event": "list_streams_error", "logger": "core.rate_limiter", "level": "error", "timestamp": "2026-01-04T00:29:35.011117Z"}
+{"method": "GET", "path": "/api/v1/streams/", "status_code": 500, "duration_ms": 3.9954185485839844, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.011590Z"}
+{"method": "GET", "path": "/api/v1/costs", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.054180Z"}
+{"method": "GET", "path": "/api/v1/costs", "status_code": 404, "duration_ms": 0.7646083831787109, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.054908Z"}
+{"method": "GET", "path": "/api/v1/costs/budget", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.056480Z"}
+{"method": "GET", "path": "/api/v1/costs/budget", "status_code": 404, "duration_ms": 0.6036758422851562, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.057067Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.058596Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.059369Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.2118816375732422, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.059784Z"}
+{"timestamp": "2026-01-04T00:29:35.059913", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.061329Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.061744Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.6494522094726562, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.061970Z"}
+{"timestamp": "2026-01-04T00:29:35.062030", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.063510Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.064118Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.9973049163818359, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.064498Z"}
+{"timestamp": "2026-01-04T00:29:35.064609", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.065956Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.066558Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.9725093841552734, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.066921Z"}
+{"timestamp": "2026-01-04T00:29:35.067028", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.068536Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.069251Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.1467933654785156, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.069675Z"}
+{"timestamp": "2026-01-04T00:29:35.069795", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.071526Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.072477Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.3904571533203125, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:35.072906Z"}
+{"timestamp": "2026-01-04T00:29:35.073029", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.218352Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.218556Z"}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 0.7593631744384766, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.219095Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.8013248443603516, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.219353Z"}
+{"timestamp": "2026-01-04T00:29:59.219425", "event_type": "api_access", "user_id": null, "action": "OPTIONS", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.222243Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.222422Z"}
+{"user": "admin", "event": "dashboard_stats_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.222897Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.223389Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 1.4519691467285156, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.223682Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.4758110046386719, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:29:59.223893Z"}
+{"timestamp": "2026-01-04T00:29:59.223959", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.217435Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.217772Z"}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 0.7786750793457031, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.218197Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 0.7262229919433594, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.218495Z"}
+{"timestamp": "2026-01-04T00:30:29.218567", "event_type": "api_access", "user_id": null, "action": "OPTIONS", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.221555Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.221883Z"}
+{"user": "admin", "event": "dashboard_stats_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.222220Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.222809Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 1.5101432800292969, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.223051Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.4796257019042969, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:29.223359Z"}
+{"timestamp": "2026-01-04T00:30:29.223426", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.217673Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.217913Z"}
+{"method": "OPTIONS", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 1.0852813720703125, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.218738Z"}
+{"method": "OPTIONS", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 1.1987686157226562, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.219107Z"}
+{"timestamp": "2026-01-04T00:30:59.219237", "event_type": "api_access", "user_id": null, "action": "OPTIONS", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.221801Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "client": "127.0.0.1", "event": "api_request", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.222249Z"}
+{"user": "admin", "event": "dashboard_stats_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.222861Z"}
+{"user": "admin", "count": 0, "filter_status": null, "event": "threat_history_retrieved", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.223616Z"}
+{"method": "GET", "path": "/api/v1/analytics/dashboard", "status_code": 200, "duration_ms": 2.285003662109375, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.224071Z"}
+{"method": "GET", "path": "/api/v1/threats/history", "status_code": 200, "duration_ms": 2.279043197631836, "event": "api_response", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:30:59.224524Z"}
+{"timestamp": "2026-01-04T00:30:59.224640", "event_type": "api_access", "user_id": null, "action": "GET", "resource": "/api/v1/threats/history", "status": "success", "ip_address": "127.0.0.1", "details": {}}
+{"event": "api_shutdown", "logger": "core.rate_limiter", "level": "info", "timestamp": "2026-01-04T00:31:11.378184Z"}
